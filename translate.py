@@ -34,7 +34,7 @@ def kontol1():
 	soup = BeautifulSoup(a.text, "html.parser")#.json()
 	#print(soup)
 	for hasil in soup.find_all("div",class_="result_text"):
-		print(hasil)
+		print(hasil.text)
 		#sleep(5)
 		#menu()
 def anjing():
