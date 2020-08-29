@@ -1,6 +1,6 @@
 import requests,os
-import time;
-
+from time import sleep
+import time; 
 localtime = time.asctime(time.localtime(time.time()))
 #print "Waktu lokal saat ini :", localtime
 
@@ -18,15 +18,18 @@ def menu():
 	print("#1.Indonesia ke Inggris      #")
 	print("#2.Inggris ke Indonesia      #")
 	print('='*30)
-	c = int(input("Pilih Translate : "))
-	if c ==1:
-		kontol1()
-	elif c ==2:
-		anjing()
-	else:
-		print("Masukkan Angka yang benar anjing... ")
-		sleep(2)
-		menu()
+	c = input("Pilih Translate : ")
+	try:
+		if c =="1":
+			kontol1()
+		elif c =="2":
+			anjing()
+		else:
+			print("Masukkan Angka yang benar anjing... ")
+			sleep(2)
+			menu()
+	except ValueError:
+		pass
 def anjing():
 	aa = input("Translate : ")
 	ss = requests.get(r"https://translate.google.com/translate_a/t?client=at&sc=1&v=2.0&sl=en&tl=id&hl=nl&ie=UTF-8&oe=UTF-8&text="+aa).json()
