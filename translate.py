@@ -1,6 +1,4 @@
 import requests,os
-from bs4 import BeautifulSoup
-from time import sleep
 logo = """#Author : Safar              #
 #Support : My Team           #
 #Team : From XiuzCode        #
@@ -23,36 +21,29 @@ def menu():
 		print("Masukkan Angka yang benar anjing... ")
 		sleep(2)
 		menu()
-def kontol1():
-	b = input("Bahasa indonesia : ")
-	url = "https://mobile.sederet.com/translate.php"
-	hed = {
-	"User-Agent":"Mozilla/5.0 (Linux; Android 6.0.1; CPH1701) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.101 Mobile Safari/537.36"
-	}
-	data = {"q":b, "lang":"id_en"}
-	a = requests.post(url,data=data,headers=hed)
-	soup = BeautifulSoup(a.text, "html.parser")#.json()
-	#print(soup)
-	for hasil in soup.find_all("div",class_="result_text"):
-		print(hasil.text)
-		#sleep(5)
-		#menu()
 def anjing():
-	b = input("Bahasa Inggris : ")
-	url = "https://mobile.sederet.com/translate.php"
-	hed = {
-	"User-Agent":"Mozilla/5.0 (Linux; Android 6.0.1; CPH1701) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.101 Mobile Safari/537.36"
-	}
-	data = {"q":b, "lang":"en_id"}
-	a = requests.post(url,data=data,headers=hed)
-	soup = BeautifulSoup(a.text, "html.parser")#.json()
-	#print(soup)
-	for hasil in soup.find_all("div",class_="result_text"):
-		print(hasil.text)
-		#a = input("Apa mau lanjut? y/n : ")
-		#if a =="y":
-			#menu()
-		#else:
-			#print("Bye Bye Anjing... ")
+	aa = input("Translate : ")
+	ss = requests.get(r"https://translate.google.com/translate_a/t?client=at&sc=1&v=2.0&sl=en&tl=id&hl=nl&ie=UTF-8&oe=UTF-8&text="+aa).json()
+	for x in ss["sentences"]:
+		print('='*30)
+		print("Bahasa inggris : ",aa) 
+		print ("Bahasa indonesia ",x["trans"])
+		print("="*30)
+		print("Tekan Enter Buat Kembali kemenu")
+		x = input()
+		if x =="":
+			menu()
 
+def kontol1():
+	aa = input("Translate : ")
+	ss = requests.get(r"https://translate.google.com/translate_a/t?client=at&sc=1&v=2.0&sl=id&tl=en&hl=nl&ie=UTF-8&oe=UTF-8&text="+aa).json()
+	for x in ss["sentences"]:
+		print('='*30)
+		print("Bahasa indonesia : ",aa) 
+		print ("Bahasa inggris : ",x["trans"])
+		print("="*30)
+		print("Tekan Enter Buat Kembali kemenu")
+		x = input()
+		if x =="":
+			menu()
 menu()
