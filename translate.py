@@ -36,7 +36,7 @@ def anjing():
 	for x in ss["sentences"]:
 		print('='*30)
 		print("Bahasa inggris : ",aa) 
-		print ("Bahasa indonesia ",x["trans"])
+		print ("Bahasa indonesia : ",x["trans"])
 		print("="*30)
 		print("Tekan Enter Buat Kembali kemenu")
 		x = input()
