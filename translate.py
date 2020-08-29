@@ -1,6 +1,9 @@
 import requests,os
 import time;
+
 localtime = time.asctime(time.localtime(time.time()))
+#print "Waktu lokal saat ini :", localtime
+
 logo = """#Author : Safar              #
 #Support : My Team           #
 #Team : From XiuzCode        #
@@ -8,7 +11,7 @@ logo = """#Author : Safar              #
 #My Contact : +6282288231535 #"""
 def menu():
 	os.system('clear') 
-        print ("Waktu lokal saat ini :\n\b",localtime)
+	print ("Waktu lokal saat ini :\n\b",localtime)
 	print('='*30)
 	print(logo)
 	print("##########TRANSLATE###########")
@@ -30,7 +33,7 @@ def anjing():
 	for x in ss["sentences"]:
 		print('='*30)
 		print("Bahasa inggris : ",aa) 
-		print ("Bahasa indonesia : ",x["trans"])
+		print ("Bahasa indonesia ",x["trans"])
 		print("="*30)
 		print("Tekan Enter Buat Kembali kemenu")
 		x = input()
@@ -50,3 +53,5 @@ def kontol1():
 		if x =="":
 			menu()
 menu()
+
+
